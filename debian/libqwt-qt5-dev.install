@@ -1,0 +1,7 @@
+usr/include/qwt
+usr/lib/*/pkgconfig/Qt5Qwt6.pc
+usr/lib/*/qt5/mkspecs/features/qwt.prf
+usr/lib/*/qt5/mkspecs/features/qwtconfig.pri
+usr/lib/*/qt5/mkspecs/features/qwtfunctions.pri
+usr/lib/*/qt5/plugins/designer/libqwt_designer_plugin.so
+usr/lib/libqwt-qt5.so

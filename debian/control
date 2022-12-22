@@ -1,0 +1,100 @@
+Source: qwt
+Priority: optional
+Maintainer: Gudjon I. Gudjonsson <gudjon@gudjon.org>
+Uploaders: Lisandro Damián Nicanor Pérez Meyer <lisandro@debian.org>
+Build-Depends: debhelper (>= 12~),
+               libqt5opengl5-dev,
+               libqt5svg5-dev,
+               pkg-kde-tools,
+               qtbase5-dev,
+               qttools5-dev
+Standards-Version: 4.4.0
+Section: libs
+Homepage: http://qwt.sourceforge.net
+Vcs-Git: https://salsa.debian.org/qt-kde-team/extras/qwt.git
+Vcs-Browser: https://salsa.debian.org/qt-kde-team/extras/qwt
+
+Package: libqwt-headers
+Section: oldlibs
+Architecture: any
+Depends: libqwt-qt5-dev, ${misc:Depends}
+Description: Qt widgets library for technical applications (header files)
+ The Qwt library contains Qt GUI Components and utility classes which
+ are primarily useful for programs with a technical background. Most of
+ these widgets are used to control or display values, arrays, or ranges
+ of type double.
+ .
+ Transitional dummy package, you can safely remove it.
+
+Package: libqwt-qt5-dev
+Section: libdevel
+Architecture: any
+Depends: libqwt-qt5-6 (= ${binary:Version}), ${misc:Depends}, ${shlibs:Depends}
+Breaks: libqwt-headers (<< 6.1.4-1.1~)
+Replaces: libqwt-headers (<< 6.1.4-1.1~)
+Description: Qt widgets library for technical applications (development, qt5)
+ The Qwt library contains Qt GUI Components and utility classes which
+ are primarily useful for programs with a technical background. Most of
+ these widgets are used to control or display values, arrays, or ranges
+ of type double.
+ .
+ This package contains the Qwt development files for Qt5.
+
+Package: libqwt-qt5-6
+Architecture: any
+Depends: ${misc:Depends}, ${shlibs:Depends}
+Pre-Depends: ${misc:Pre-Depends}
+Description: Qt widgets library for technical applications (runtime, qt5)
+ The Qwt library contains Qt GUI Components and utility classes which
+ are primarily useful for programs with a technical background. Most of
+ these widgets are used to control or display values, arrays, or ranges
+ of type double.
+ .
+ This package contains the files necessary for running applications that
+ use the Qwt library and Qt5.
+
+Package: libqwtmathml-qt5-dev
+Section: libdevel
+Architecture: any
+Depends: libqwt-qt5-dev (= ${binary:Version}),
+         libqwtmathml-qt5-6 (= ${binary:Version}),
+         ${misc:Depends},
+         ${shlibs:Depends}
+Breaks: libqwt-qt5-dev (<< 6.1.4-1.1~)
+Replaces: libqwt-qt5-dev (<< 6.1.4-1.1~)
+Description: Text Engine for Qwt (development, qt5)
+ The Qwt library contains Qt GUI Components and utility classes which
+ are primarily useful for programs with a technical background. Most of
+ these widgets are used to control or display values, arrays, or ranges
+ of type double.
+ .
+ This package contains a text engine for the MathML renderer of the Qt
+ solution package for the Qwt library and Qt5. These are the development
+ files.
+
+Package: libqwtmathml-qt5-6
+Architecture: any
+Depends: libqwt-qt5-6 (= ${binary:Version}), ${misc:Depends}, ${shlibs:Depends}
+Pre-Depends: ${misc:Pre-Depends}
+Description: Text Engine for Qwt (runtime, qt5)
+ The Qwt library contains Qt GUI Components and utility classes which
+ are primarily useful for programs with a technical background. Most of
+ these widgets are used to control or display values, arrays, or ranges
+ of type double.
+ .
+ This package contains a text engine for the MathML renderer of the Qt
+ solution package for the Qwt library and Qt5.
+
+Package: libqwt-doc
+Section: doc
+Architecture: all
+Depends: ${misc:Depends}
+Recommends: w3m | www-browser
+Description: Qt widgets library for technical applications (documentation)
+ The Qwt library contains Qt GUI Components and utility classes which
+ are primarily useful for programs with a technical background. Most of
+ these widgets are used to control or display values, arrays, or ranges
+ of type double.
+ .
+ This package contains the Qwt library documentation and programming examples
+ for developers.

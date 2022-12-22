@@ -1,0 +1,57 @@
+#!/usr/bin/make -f
+
+# Uncomment this to turn on verbose mode.
+#export DH_VERBOSE=1
+
+#include /usr/share/dpkg/pkg-info.mk
+include /usr/share/dpkg/default.mk
+
+QMAKE_FLAGS = QMAKE_CXXFLAGS+="$(CXXFLAGS) $(CPPFLAGS)" QMAKE_LFLAGS+="$(LDFLAGS)" QMAKE_STRIP=
+
+UPSTREAM_VERSION = $(shell echo $(DEB_VERSION_UPSTREAM) | sed -e 's/\+.*//')
+
+#export DEB_BUILD_MAINT_OPTIONS=hardening=+pie,-fortify
+#export CFLAGS   := $(shell dpkg-buildflags --get CFLAGS)   $(shell dpkg-buildflags --get CPPFLAGS)
+#export CXXFLAGS := $(shell dpkg-buildflags --get CXXFLAGS) $(shell dpkg-buildflags --get CPPFLAGS)
+#export CPPFLAGS := $(shell dpkg-buildflags --get CXXFLAGS) $(shell dpkg-buildflags --get CPPFLAGS)
+#export LDFLAGS  := $(shell dpkg-buildflags --get LDFLAGS) -Wl,--as-needed
+export QT_SELECT := qt5
+
+%:
+	dh $@ --with pkgkde_symbolshelper
+
+
+override_dh_auto_configure:
+	dh_auto_configure
+	cp qwt*.pri examples/
+
+override_dh_auto_clean:
+	dh_auto_clean
+	rm -f examples/qwt*.pri
+	rm -rf lib
+
+override_dh_auto_install:
+	dh_auto_install
+	find debian/tmp/usr -type f -name '*.md5' -exec rm -vf {} \;
+	find debian/tmp/usr -type f -name '*.js' -exec rm -vf {} \;
+	mkdir -p $(CURDIR)/debian/tmp/usr/lib/${DEB_HOST_MULTIARCH}/pkgconfig
+	mv $(CURDIR)/debian/tmp/usr/lib/pkgconfig/Qt5Qwt6.pc \
+	  $(CURDIR)/debian/tmp/usr/lib/${DEB_HOST_MULTIARCH}/pkgconfig/
+
+override_dh_missing:
+	dh_missing --fail-missing
+
+override_dh_installchangelogs:
+	dh_installchangelogs CHANGES-6.1
+
+override_dh_installdocs:
+	dh_installdocs README
+
+override_dh_makeshlibs:
+	dh_makeshlibs -- -c0 -v$(UPSTREAM_VERSION)
+
+override_dh_compress:
+	dh_compress --exclude=.cpp --exclude=.pri --exclude=.xpm
+
+override_dh_installman:
+	dh_installman -X"_tmp_qwt"

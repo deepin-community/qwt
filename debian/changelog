@@ -1,0 +1,290 @@
+qwt (6.1.4-2) UNRELEASED; urgency=medium
+
+  * update
+
+ -- Gudjon I. Gudjonsson <gudjon@gudjon.org>  Tue, 26 Apr 2022 16:37:31 +0800
+
+qwt (6.1.4-2) unstable; urgency=medium
+
+  [ Lisandro Damián Nicanor Pérez Meyer ]
+  * Move package to salsa and fix Vcs paths (Closes: #935116)
+  * Add build depends to symbols files.
+  * Add DEB_HOST_MULTIARCH to pkgconfig path.
+  * Fix clean target.
+  * Add Lisandro Damián Nicanor Pérez Meyer as uploader.
+
+  [ Gudjon I. Gudjonsson ]
+  * Add patch 06_ftbs.patch, (Closes: #975129)
+    The patch is already implemented in upstream version 6.1.5
+  * Update symbols files. No code change since last version.
+  * Change hardening to the same implementation as in Qscintilla2
+    (Closes: #940729, #940731)
+
+ -- Lisandro Damián Nicanor Pérez Meyer <lisandro@debian.org>  Tue, 15 Dec 2020 22:44:12 -0300
+
+qwt (6.1.4-1.1) unstable; urgency=medium
+
+  * Non-maintainer upload.
+  * Switch to debhelper compat 12.
+  * Install man pages.
+  * Fail in case of files not being installed.
+  * Drop the Qt 4 version (Closes: #875165).
+    - Remove unneeded build dependencies.
+    - Remove related packages.
+    - Make libqwt-headers-dev a transitional package that depends upon
+      libqwt-qt5-dev.
+    - Add Breaks + Replaces.
+    - Modify debian/rules accordingly.
+  * Bump Standards-Version to 4.4.0. No changes required.
+  * Move qwtmathml.prf to libqwtmathml-qt5-dev, adding proper Breaks+Replaces.
+
+ -- Lisandro Damián Nicanor Pérez Meyer <lisandro@debian.org>  Sun, 25 Aug 2019 21:50:31 -0300
+
+qwt (6.1.4-1) unstable; urgency=medium
+
+  * New upstream release
+  * Change watch file url to https.
+  * Bump standards version to 4.3.0.2
+  * Refresh all patches
+  * Change 6.1.3 to 6.1.4 in rules file
+  * Update symbols files
+  * Don't exclude build of qt4 designer plugin
+
+ -- Gudjon I. Gudjonsson <gudjon@gudjon.org>  Thu, 28 Feb 2019 16:09:24 +0100
+
+qwt (6.1.3-1) unstable; urgency=medium
+
+  * New upstream version
+  * Bump standards version to 4.1.3, no changes needed
+  * Change compat level to 9
+  * Remove unwanted man1 manpages (Closes: #850641)
+  * Change myself to maintainer (Closes: #879431)
+  * Update symbols files with buildds' logs. Yet again.
+    (Closes: #886171)
+  * Override dh_makeshlibs to not fail on symbols changes,
+    and set upstream version (thanks to Bas Couwenberg)
+  * Add README.source file
+
+ -- Gudjon I. Gudjonsson <gudjon@gudjon.org>  Fri, 12 Jan 2018 11:04:35 +0100
+
+qwt (6.1.2-6) unstable; urgency=medium
+
+  * Non-maintainer upload.
+  * Update symbols files with buildds' logs. Yet again.
+
+ -- Lisandro Damián Nicanor Pérez Meyer <lisandro@debian.org>  Mon, 05 Sep 2016 09:05:19 -0300
+
+qwt (6.1.2-5.4) unstable; urgency=medium
+
+  * Non-maintainer upload.
+  * Update symbols files with buildds' logs.
+
+ -- Lisandro Damián Nicanor Pérez Meyer <lisandro@debian.org>  Sun, 04 Sep 2016 21:57:16 -0300
+
+qwt (6.1.2-5.3) unstable; urgency=medium
+
+  * Non-maintainer upload.
+  * Update symbols files with buildds' and current build logs
+    (Closes: #835755).
+
+ -- Lisandro Damián Nicanor Pérez Meyer <lisandro@debian.org>  Sun, 04 Sep 2016 19:00:03 -0300
+
+qwt (6.1.2-5.2) unstable; urgency=medium
+
+  * Non-maintainer upload.
+  * Update symbols files with buildd's logs.
+
+ -- Lisandro Damián Nicanor Pérez Meyer <lisandro@debian.org>  Sat, 16 Jul 2016 09:12:55 -0300
+
+qwt (6.1.2-5.1) unstable; urgency=medium
+
+  [ Bas Couwenberg ]
+  * Non-maintainer upload.
+  * Update symbols for amd64 (recent logs), sparc64 & x32 (old logs).
+
+  [ Lisandro Damián Nicanor Pérez Meyer ]
+  * Mark optional symbols as such to prevent further FTBFSs.
+  * Fix typo in previous changelog entry.
+  * Bump Standards-Version to 3.9.8, no changes required.
+
+ -- Lisandro Damián Nicanor Pérez Meyer <lisandro@debian.org>  Fri, 15 Jul 2016 22:59:26 -0300
+
+qwt (6.1.2-5) unstable; urgency=medium
+
+  * Team upload to unstable.
+  * Update Standards-Version to 3.9.7, no changes required.
+
+ -- Lisandro Damián Nicanor Pérez Meyer <lisandro@debian.org>  Mon, 07 Mar 2016 15:22:02 -0300
+
+qwt (6.1.2-4) experimental; urgency=medium
+
+  * Update symbol files from builds
+
+ -- Gudjon I. Gudjonsson <gudjon@gudjon.org>  Mon, 25 Jan 2016 20:59:57 +0100
+
+qwt (6.1.2-3) experimental; urgency=medium
+
+  * Update symbols files from all builds.
+
+ -- Gudjon I. Gudjonsson <gudjon@gudjon.org>  Sat, 14 Nov 2015 07:50:04 +0100
+
+qwt (6.1.2-2) experimental; urgency=medium
+
+  * Make libqwt-headers break older versions of libqwt-dev (Closes: #793070)
+  * Bump SONAME to libqwt.so.6abi1 and libqwtmathml.so.6abi1
+  * Change package names to libqwt6abi1 and libqwtmathml6abi1
+  * Make new packages break/replace libqwt6,libqwtmahml6
+  * Update symbols files for gcc5
+  * Remove libqwt-dev from recommends in libqwt-qt5-dev
+  * Change all symbols version in liqwt6abi1 and libqwtmathml6abi1
+    from 6.0.0 to 6.1.2
+
+ -- Gudjon I. Gudjonsson <gudjon@gudjon.org>  Sat, 03 Oct 2015 21:20:46 +0200
+
+qwt (6.1.2-1) experimental; urgency=medium
+
+  * New upstream release (Closes:  #733153)
+  * Bump standards version to 3.9.6
+  * Add -qt5 library
+  * Add hardening and fortifying code, patch 01_hardening
+  * add -qt5 name extension to Qt5 packages, patch 02_makefiles
+  * Fix spelling in documentation, patch 03_fix_spelling
+  * Remove rpath and compile against libqwt-qt5.so for the
+    Qt5 designer plugin, patch 04_designer
+  * Make the examples compile when out of the qwt source tree,
+    patch 05_examples
+  * Remove all javascript files from the documentation to fix
+    lintian error.
+  * Add symbols control file
+  * Add qwtfunctions.pri to makespecs
+  * Enable verbose build
+  * Add pkg-config files
+  * Update emails
+  * Add libqwtmathml symbol files
+  * Change symbol files according to pkgkde standards
+  * Add VCS fields
+  * Make libqwtmathml as a separate package
+  * Add pkgkde_symbolshelper
+  * Patch symbols file with new symbols
+  * Remove missing symbols from symbols files
+
+ -- Gudjon I. Gudjonsson <gudjon@gudjon.org>  Sun, 19 Jul 2015 07:29:55 +0200
+
+qwt (6.0.0-1.2) unstable; urgency=low
+
+  * Non-maintainer upload.
+  * Fix FTBFS with multi-arch Qt 4.8 (Closes: 662230)
+    - Change install path for libqwt_designer_plugin.so in libqwt-dev.install
+    - Update build-depends version requirements for debhelper and libqt4-dev
+    - Add misc:Pre-Depends for libqwt6
+    - Bump compat to 8
+
+ -- Scott Kitterman <scott@kitterman.com>  Wed, 09 May 2012 15:24:37 -0400
+
+qwt (6.0.0-1.1) unstable; urgency=medium
+
+  * Non-maintainer upload.
+  * Update debian/control:
+    - Fix the typo in Replaces: added the missing debian revision.
+      (Closes: #631816)
+
+ -- Eugene V. Lyubimkin <jackyf@debian.org>  Sat, 24 Mar 2012 20:27:37 +0200
+
+qwt (6.0.0-1) unstable; urgency=low
+
+  * New upstream release (Closes: #624107):
+    - drop Qt3 support. (Closes: #604379, #626868)
+  * Register documentation with doc-base. (Closes: #626567)
+  * Drop patches:
+    - 01_makefiles.diff
+    - 02_add_missing_warnings.diff
+    - 03_qwt_branch_pull_r544.diff
+  * Add qwt_install_paths.patch to fix the hardcoded installation paths.
+  * Update debian/control:
+    - drop libqt3-mt-dev build dependency.
+    - bump Standards-Version to 3.9.2 (no changes).
+    - drop Qt3 related packages.
+    - due to bump soname (and as we dropper Qt3 support):
+      - libqwt5-qt4-dev -> libqwt-dev
+      - libqwt5-qt4 -> libqwt6
+      - libqwt5-doc -> libqwt-doc
+  * Update debian/copyright file.
+  * Update debian/rules: drop Qt3 packages support.
+
+ -- Fathi Boudra <fabo@debian.org>  Fri, 10 Jun 2011 11:22:47 +0300
+
+qwt (5.2.0-1) unstable; urgency=low
+
+  * New upstream release.
+  * Add branch pull patch from svn r544.
+  * Bump Standards-Version to 3.8.2. No changes needed.
+  * Update installed manpages.
+  * Use qwt as base name for directory (drop version).
+  * Add missing warnings patch.
+  * Rewrite debian/rules: use dh.
+
+ -- Fathi Boudra <fabo@debian.org>  Wed, 01 Jul 2009 16:08:21 +0200
+
+qwt (5.1.2-1) unstable; urgency=low
+
+  * New upstream release.
+  * Bump compat/debhelper to 7.
+  * Bump Standards-Version to 3.8.1. No changes needed.
+  * Invert Maintainers and Uploaders field.
+  * Fix lintian warnings:
+    - dh_clean _k deprecated.
+    - missing dependency on libc.
+
+ -- Fathi Boudra <fabo@debian.org>  Sun, 12 Apr 2009 23:25:58 +0200
+
+qwt (5.1.1-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Fathi Boudra <fabo@debian.org>  Mon, 26 May 2008 10:26:31 +0200
+
+qwt (5.1.0-1) unstable; urgency=low
+
+  * New upstream release.
+  * Refresh makefiles patch.
+  * Remove QwtPlotScaleItem patch.
+  * Bump compat/debhelper to 6.
+
+ -- Fathi Boudra <fabo@debian.org>  Fri, 09 May 2008 09:56:52 +0200
+
+qwt (5.0.2-2) unstable; urgency=low
+
+  * Handle nostrip build option. (Closes: #437877)
+  * Build libqwt5-doc package in binary-indep target. (Closes: #443110)
+
+ -- Fathi Boudra <fboudra@free.fr>  Fri, 05 Oct 2007 15:20:41 +0200
+
+qwt (5.0.2-1) unstable; urgency=low
+
+  * New upstream release.
+  * Refresh QwtPlotScaleItem from svn revision 66.
+  * Switch to quilt patch system.
+
+ -- Fathi Boudra <fboudra@free.fr>  Sun, 29 Jul 2007 11:15:38 +0200
+
+qwt (5.0.1-2) unstable; urgency=low
+
+  * Enable QwtSVGItem.
+  * Add QwtPlotScaleItem from svn revision 65.
+
+ -- Fathi Boudra <fboudra@free.fr>  Thu,  8 Mar 2007 15:34:42 +0100
+
+qwt (5.0.1-1) unstable; urgency=low
+
+  * New upstream release.
+
+  [ Gudjon I. Gudjonsson ]
+  * Add libqwt5-doc conflicts against libqwt-doc. (Closes: #412953)
+
+ -- Fathi Boudra <fboudra@free.fr>  Thu,  8 Mar 2007 10:23:47 +0100
+
+qwt (5.0.0-1) unstable; urgency=low
+
+  * Initial release.
+
+ -- Fathi Boudra <fboudra@free.fr>  Thu,  1 Feb 2007 11:57:31 +0100
